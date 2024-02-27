@@ -176,7 +176,7 @@ AS
 
 
 						   SET @RutaArchivo = @Ruta + '\' + @Database + '\full\' + @Database + '_' +
-						   @TypeBackup + '_' + @FechaBackup + '_V'+ @Hora + '.bak'
+						   @TypeBackup + '_' + @FechaBackup + '.bak'
 
 						   SET @ComandoBackup = 'BACKUP DATABASE ' + QUOTENAME(@Database) + ' TO DISK = '''
 						    + @RutaArchivo + ''' WITH NAME = ''backup completo_'+ @FechaBackup + '_V'+ @Hora+''';';
@@ -203,7 +203,7 @@ AS
 					 -- Código para crear el backup
 
 					 SET @RutaArchivo = @Ruta + '\' + @Database + '\log\' + @Database + '_' +
-			    		 @TypeBackup + '_' + @FechaBackup + '_V'+ @Hora + '.bak'
+			    		 @TypeBackup + '_' + @FechaBackup + '.bak'
 
          			SET @ComandoBackup = 'BACKUP LOG ' + QUOTENAME(@Database) + ' TO DISK = '''
                         + @RutaArchivo + ''' WITH NO_TRUNCATE, NAME = ''backup log'+ @FechaBackup+ '_V'+ @Hora +''';';
@@ -229,7 +229,7 @@ AS
 					 -- Código para crear el backup
 				     
 					 SET @RutaArchivo = @Ruta + '\' + @Database + '\differential\' + @Database + '_' +
-			    			     @TypeBackup + '_' + @FechaBackup + '_V'+ @Hora + '.bak'
+			    			     @TypeBackup + '_' + @FechaBackup + '.bak'
 
          						 SET @ComandoBackup = 'BACKUP DATABASE ' + QUOTENAME(@Database) + ' TO DISK = '''
                                  + @RutaArchivo + ''' WITH NAME = ''backup differential_'+ @FechaBackup + '_V'+ @Hora +''';';
@@ -263,4 +263,4 @@ AS
 
 
  restore headeronly 
-from disk = 'D:\BbHD\HD1\full\HD1_full_2024-02-25.bak'
+from disk = 'D:\BbHD\HD1\differential\HD1_Differential_2024-02-27.bak'
